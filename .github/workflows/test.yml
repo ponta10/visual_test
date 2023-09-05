@@ -1,0 +1,30 @@
+name: Visual Regression Test
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  visual-regression-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18' # 任意のバージョンを指定できます
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run reg-suit
+      run: npx reg-suit run
+
+    - name: Notify GitHub PR
+      run: npx reg-suit notify-github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CLIENT_ID: ${{ secrets.REG_GITHUB_APP_CLIENT_ID }}
