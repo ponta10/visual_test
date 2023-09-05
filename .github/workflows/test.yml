@@ -19,12 +19,15 @@ jobs:
 
     - name: Install dependencies
       run: npm ci
+    
+    - name: Run screenshots
+      run: npm run  screenshot
 
     - name: Run reg-suit
-      run: npx reg-suit run
+      run: npm run regression
 
-    - name: Notify GitHub PR
-      run: npx reg-suit notify-github
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CLIENT_ID: ${{ secrets.REG_GITHUB_APP_CLIENT_ID }}
+    # - name: Notify GitHub PR
+    #   run: npx reg-suit notify-github
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     CLIENT_ID: ${{ secrets.REG_GITHUB_APP_CLIENT_ID }}
