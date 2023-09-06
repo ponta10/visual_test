@@ -17,13 +17,21 @@ jobs:
       uses: actions/cache@v2
       with:
         path: node_modules
-        key: v1-dependencies-${{ hashFiles('package.json') }}-${{ hashFiles('package.lock.json') }}
+        key: v1-dependencies-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
         restore-keys: |
           v1-dependencies-${{ hashFiles('package.json') }}-
           v1-dependencies-
 
     - name: Install dependencies
       run: npm install
+
+    - name: Start Storybook
+      run: start-storybook -p 6006 &
+
+    - name: Debug - Check Storybook server
+      run: |
+        sleep 10  # 10秒待機してStorybookが起動するのを待つ
+        curl http://localhost:6006
 
     - name: Capture screenshots
       run: npm run screenshot
