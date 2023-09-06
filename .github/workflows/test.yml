@@ -31,8 +31,8 @@ jobs:
     - name: Build Storybook
       run: npm run build-storybook
 
-    - name: Capture screenshots
-      run: npm run screenshot
+    - name: Capture screenshots with Storycap
+      run: npx storycap http://localhost:6006
 
     # - name: Run regression
     #   run: npm run regression
