@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "screenshot": "storycap -C puppeteer --serverCmd \"start-storybook -p 6006\" http://localhost:6006 --serverTimeout 180000",
+    "screenshot": "storycap --serverTimeout 60000 --captureTimeout 10000 --serverCmd 'npx http-server dist-storybook --ci -p 9009' http://localhost:9009",
     "regression": "reg-suit run",
     "lint": "prettier --check . && eslint --ext .ts,.tsx --ignore-path .gitignore .",
     "fix": "prettier --write . && eslint --ext .ts,.tsx --ignore-path .gitignore . --fix"
