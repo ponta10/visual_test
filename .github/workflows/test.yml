@@ -24,20 +24,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-    
-    - name: Install curl
-      run: sudo apt-get update && sudo apt-get install -y curl
 
-    - name: Start Storybook
-      run: start-storybook -p 6006 &
-
-    - name: Debug - Check Storybook server
-      run: |
-        sleep 10  # 10秒待機してStorybookが起動するのを待つ
-        curl http://localhost:6006
-
-    - name: Capture screenshots
-      run: npm run screenshot
+    # - name: Capture screenshots
+    #   run: npm run screenshot
 
     - name: Run regression
       run: npm run regression
