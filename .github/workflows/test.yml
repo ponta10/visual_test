@@ -28,6 +28,9 @@ jobs:
     - name: Check lint
       run: npm run lint
 
+    - name: Build Storybook
+      run: npm run build-storybook
+
     - name: Capture screenshots
       run: npm run screenshot
 
