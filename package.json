@@ -24,7 +24,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "screenshot": "storycap -C puppeteer --serverCmd \"start-storybook -p 6006\" http://localhost:6006 --serverTimeout 600000",
-    "regression": "reg-suit run"
+    "regression": "reg-suit run",
+    "lint": "prettier --check . && eslint --ext .ts,.tsx --ignore-path .gitignore .",
+    "fix": "prettier --write . && eslint --ext .ts,.tsx --ignore-path .gitignore . --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -58,7 +60,12 @@
     "@storybook/react-webpack5": "^7.4.0",
     "@storybook/testing-library": "^0.2.0",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^0.6.13",
+    "prettier": "^3.0.3",
     "prop-types": "^15.8.1",
     "puppeteer": "^21.1.1",
     "reg-cli": "^0.17.7",
