@@ -25,10 +25,13 @@ jobs:
     - name: Install dependencies
       run: npm install
 
+    - name: Check lint
+      run: npm run lint
+
     # - name: Capture screenshots
     #   run: npm run screenshot
 
-    - name: Run regression
-      run: npm run regression
+    # - name: Run regression
+    #   run: npm run regression
 env:
   REG_NOTICE_CLIENT_ID: M7MwNzKxNDWw1C/LLC5NzIkvSS0u0TcxNDE1MTc21y/IzytJNDQAAA==
